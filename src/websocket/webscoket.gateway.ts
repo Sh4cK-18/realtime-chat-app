@@ -72,7 +72,7 @@ export class WebsocketGateway implements OnGatewayConnection, OnGatewayDisconnec
      */
     @SubscribeMessage('message')
     handleMessage(client: Socket, message: { sender: string; text: string }) {
-        console.log(`Mensaje recibido de ${this.users.get(client.id) || 'Desconocido'}: ${JSON.stringify(message)}`);
+        console.log(`Mensaje recibido de ${this.users.get(client.id)}: ${JSON.stringify(message)}`);
         this.server.emit('message', message);
         return message;
     }
